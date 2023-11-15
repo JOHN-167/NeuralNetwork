@@ -19,7 +19,7 @@ import java.util.Random;
  */
 
 
-abstract class Perceptron {
+abstract class AbstractPerceptron implements Trainable<Double> {
     
     protected double[] inputs;
     protected double output;
@@ -32,8 +32,9 @@ abstract class Perceptron {
     protected Random rd = new Random();
 
     abstract public double eval(double inputs);
+    abstract public void train_hidden(double[] inputs, double errors);
 
-    public Perceptron(int inputSize) {
+    public AbstractPerceptron(int inputSize) {
         W = new double[inputSize];
         for (int i = 0; i < W.length; i++) {
             W[i] = rd.nextDouble();
@@ -49,8 +50,14 @@ abstract class Perceptron {
             out =  inputs[i]*W[i];
         }
         out += b;
-        output = eval(out);
-        return output;
+        return eval(out);
+    }
+
+    public void train(double[] inputs, Double output) {
+        this.output = predict(inputs);
+        assert inputs.length == size;
+        double errors = output - this.output;
+        train_hidden(inputs, errors);        
     }
 
 }

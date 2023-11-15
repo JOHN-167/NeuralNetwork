@@ -1,6 +1,6 @@
 package src;
 
-public class LinearPerceptron extends Perceptron {
+public class LinearPerceptron extends AbstractPerceptron {
 
     private double threshold;
 
@@ -13,13 +13,11 @@ public class LinearPerceptron extends Perceptron {
     public double eval(double input) {
         return (input > threshold)? 1 : 0;
     }
-
-    public void train(double[] inputs, double output) {
-        assert inputs.length == size;
-        double error = output - this.output;
+    
+    public void train_hidden(double[] inputs, double errors) {
         for (int i = 0; i < size; i++) {
-            W[i] += l*error*inputs[i]; 
+            W[i] += l*errors*inputs[i]; 
         }
     }
-    
+
 }
