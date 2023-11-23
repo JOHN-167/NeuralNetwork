@@ -7,7 +7,7 @@ import core.AbstractNN;
 import core.Layer;
 import ls.LearningSchedule;
 import reader.DataFrame;
-import util.VectorOps;
+import util.DoubleOps;
 
 /**
  * A multi-layer neural network with a logistic regression for the 
@@ -101,7 +101,7 @@ public class MultiLayerNN extends AbstractNN {
         Double[] y = predict(inputs);
 
         // calculate the signal using the outputs
-        Double[] signals = VectorOps.subtract(outputs, y);
+        Double[] signals = DoubleOps.subtract(outputs, y);
 
         // output layer: update the weights and pass on the signals
         signals = output.update(signals);

@@ -1,6 +1,8 @@
 package core;
 
-interface Perceptron extends Predictor<Double> {
+import ls.LearningSchedule;
+
+public interface Perceptron extends Predictor<Double>, Trainable<Double> {
 
     
     /**
@@ -34,6 +36,14 @@ interface Perceptron extends Predictor<Double> {
      * @param learningRate the new learning rate
      */
     public void setLearningRate(Double learningRate);
+
+
+    /**
+     * Set learning schedule for the perceptron. Used when 
+     * the perceptron is its an independent model
+     * @param ls the learning schedule
+     */
+    public void setLearningSchedule(LearningSchedule ls);
 
 
     /**

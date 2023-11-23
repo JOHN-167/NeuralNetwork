@@ -1,8 +1,10 @@
 package core;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-import util.VectorOps;
+import util.DoubleOps;
 
 abstract public class AbstractLayer implements Layer {
     
@@ -38,13 +40,23 @@ abstract public class AbstractLayer implements Layer {
         return outputs;
     }
 
+
+    @Override
+    public List<Double[]> predict(List<Double[]> inputs) {
+        List<Double[]> out = new ArrayList<>();
+        for (int i = 0; i < inputs.size(); i++) {
+           out.add(predict(inputs.get(i))); 
+        }
+        return out;
+    }
+
     
     @Override
     public Double[] update(Double[] signals) {
         // update the weights and pass on the signals
         Double[] S = new Double[inputSize];
         for (int i = 0; i < inputSize; i++) {S[i] = 0.0;}
-        for (int i = 0; i < size(); i++) {S = VectorOps.sum(S, units[i].update(signals[i]));}
+        for (int i = 0; i < size(); i++) {S = DoubleOps.sum(S, units[i].update(signals[i]));}
 
         return S;
     }

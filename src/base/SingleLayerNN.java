@@ -2,7 +2,7 @@ package base;
 
 import core.AbstractNN;
 import ls.LearningSchedule;
-import util.VectorOps;
+import util.DoubleOps;
 
 /**
  * A neural network with a single layer of Perceptrons
@@ -53,7 +53,7 @@ public class SingleLayerNN extends AbstractNN {
         Double[] y = predict(inputs);
 
         // calculate the signal using the outputs
-        Double[] signals = VectorOps.subtract(outputs, y);
+        Double[] signals = DoubleOps.subtract(outputs, y);
 
         // output layer: update the weights and pass on the signals
         return output.update(signals);

@@ -1,5 +1,7 @@
 package core;
 
+import java.util.List;
+
 interface Predictor<T> {
         
     /**
@@ -9,5 +11,13 @@ interface Predictor<T> {
      * @return the output of the Perceptron
      */
     public T predict(Double[] inputs);
+
+
+    /**
+     * Predict the model from a list of inputs
+     * @param df
+     */
+    public List<T> predict(List<Double[]> inputs);
+
 
 }

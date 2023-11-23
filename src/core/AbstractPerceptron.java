@@ -1,8 +1,12 @@
 package core;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-import util.VectorOps;
+import ls.LearningSchedule;
+import reader.DataFrame;
+import util.DoubleOps;
 
 abstract public class AbstractPerceptron implements Perceptron {
 
@@ -36,6 +40,12 @@ abstract public class AbstractPerceptron implements Perceptron {
 
 
     /**
+     * The learning schedule of the perceptron if it is used as an
+     * independent model.
+     */
+    private LearningSchedule ls;
+
+    /**
      * The output predicted by the Perceptron. If the function predict
      * has not been called, the variable may not have been initialized. 
      */
@@ -49,10 +59,10 @@ abstract public class AbstractPerceptron implements Perceptron {
      */
     public AbstractPerceptron(int size) {
         // initialize weights
-        this.W = VectorOps.random(size);
+        this.W = DoubleOps.random(size);
 
         // inititialize bias
-        this.b = VectorOps.random(1)[0];
+        this.b = DoubleOps.random(1)[0];
     }
 
     
@@ -61,12 +71,16 @@ abstract public class AbstractPerceptron implements Perceptron {
 
     
     @Override
+    public void setLearningSchedule(LearningSchedule ls) {this.ls = ls;}
+
+    
+    @Override
     public Double predict(Double[] inputs) {
         // assigns inputs for storage
         X = inputs;
 
         // follows the regression y = b + w1*x1 + w2*x2 + ...
-        p = VectorOps.dotP(inputs, W) + b;
+        p = DoubleOps.dotP(inputs, W) + b;
 
         // apply the Perceptron learning rule
         p = learningRule(p);
@@ -74,6 +88,16 @@ abstract public class AbstractPerceptron implements Perceptron {
         return p;
     }
 
+
+    @Override
+    public List<Double> predict(List<Double[]> inputs) {
+        List<Double> out = new ArrayList<>();
+        for (int i = 0; i < inputs.size(); i++) {
+           out.add(predict(inputs.get(i))); 
+        }
+        return out;
+    }
+    
 
     @Override
     public Double[] update(Double signal) {
@@ -93,11 +117,37 @@ abstract public class AbstractPerceptron implements Perceptron {
 
 
     @Override
+    public void train(DataFrame<Double> df) {
+        List<Double[]> inputs = df.inputs();
+        List<Double[]> outputs = df.outputs();
+        for (int i = 0; i < df.size(); i++) {
+            train(inputs.get(i), outputs.get(i)[0], i);
+        }
+    }
+
+
+    @Override
     public int size() {return W.length;}
 
     
     @Override
     public String toString() {return Arrays.toString(W);}
 
+
+    @Override
+    public Double[] train(Double[] inputs, Double outputs, int iterations) {
+        // set learning rate
+        l = ls.rate(iterations);
+
+        // make a prediction using the current model
+        Double y = predict(inputs);
+
+        // calculate the signal using the outputs
+        Double signal = outputs - y;
+
+        // output layer: update the weights and pass on the signals
+        return update(signal);
     
+    }
+
 }

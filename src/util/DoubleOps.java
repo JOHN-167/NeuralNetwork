@@ -1,14 +1,13 @@
 package util;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 /**
  * An interface of vector operation methods
  */
-public interface VectorOps {
+public interface DoubleOps {
     
     /**
      * The usual dot product of two vectors A and B
@@ -109,6 +108,16 @@ public interface VectorOps {
             if (!vectorA[i].equals(vectorB[i])) {return false;}
         }
         return true;
+    }
+
+
+    /**
+     * Create a list of size-1 vectors from a list of numbers
+     */
+    public static List<Double[]> toArray(List<Double> list) {
+        List<Double[]> out = new ArrayList<>();
+        for (Double d : list) {out.add(new Double[]{d});}
+        return out;
     }
 
 }

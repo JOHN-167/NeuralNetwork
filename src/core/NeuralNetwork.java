@@ -1,18 +1,9 @@
 package core;
 
-import java.util.List;
-
 import ls.LearningSchedule;
 
-public interface NeuralNetwork extends Trainable, Predictor<Double[]> {
+public interface NeuralNetwork extends Trainable<Double[]>, Predictor<Double[]> {
     
-
-    /**
-     * Predict the model from a list of inputs
-     * @param df
-     */
-    public List<Double[]> predict(List<Double[]> inputs);
-
 
     /**
      * Update the learning rate of the neural network

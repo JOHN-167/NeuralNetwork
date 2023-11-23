@@ -1,7 +1,7 @@
 package base;
 
 import core.AbstractPerceptron;
-import util.VectorOps;
+import util.DoubleOps;
 
 public class LogisticClassifier extends AbstractPerceptron {
 
@@ -13,9 +13,10 @@ public class LogisticClassifier extends AbstractPerceptron {
     public LogisticClassifier(int size) {super(size);}
 
     @Override
-    public Double learningRule(Double p) {return VectorOps.sigmoid(p);}
+    public Double learningRule(Double p) {return DoubleOps.sigmoid(p);}
 
     @Override
     public Double reverseLearningRule(Double p) {return p*(1-p);}
+
     
 }

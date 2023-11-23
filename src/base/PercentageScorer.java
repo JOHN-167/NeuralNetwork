@@ -4,7 +4,7 @@ import java.util.List;
 
 import core.DoubleScorer;
 import reader.DataFrame;
-import util.VectorOps;
+import util.DoubleOps;
 
 public class PercentageScorer extends DoubleScorer {
 
@@ -21,7 +21,7 @@ public class PercentageScorer extends DoubleScorer {
         int size = df.size();
         int cnt = 0;
         for (int i = 0; i < size; i++) {
-            if (VectorOps.equals(inputs.get(i), outputs.get(i))) {cnt++;}
+            if (DoubleOps.equals(inputs.get(i), outputs.get(i))) {cnt++;}
         }
         return cnt;
     }

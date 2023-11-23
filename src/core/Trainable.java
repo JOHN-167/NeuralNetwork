@@ -7,7 +7,7 @@ import reader.DataFrame;
  * outputs for the model and compares the prediction to the 
  * desired outputs to update the weight space accordingly 
  */
-interface Trainable {
+interface Trainable<E> {
     
     
     /**
@@ -16,7 +16,7 @@ interface Trainable {
      * @param outputs the desired outputs
      * @return the signals from the updating process
      */
-    public Double[] train(Double[] inputs, Double[] outputs, int iterations);
+    public Double[] train(Double[] inputs, E outputs, int iterations);
 
 
     

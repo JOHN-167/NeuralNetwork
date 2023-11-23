@@ -39,4 +39,5 @@ public class LinearClassifier extends AbstractPerceptron {
      */
     public void setThreshold(Double threshold) {this.threshold = threshold;}
 
+
 }

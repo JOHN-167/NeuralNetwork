@@ -18,5 +18,6 @@ public class LogisticLayer extends AbstractLayer {
         for (int i = 0; i < size(); i++) {units[i] = new LogisticClassifier(inputSize);}
     }
 
+
 }
 
