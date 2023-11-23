@@ -1,4 +1,4 @@
-package bn.src.util;
+package bn.src.simulator;
 
 import java.util.List;
 import java.util.Map;
@@ -14,6 +14,7 @@ import bn.src.core.NeuralNetwork;
 import bn.src.core.Perceptron;
 import bn.src.ls.LearningSchedule;
 import bn.src.reader.DataFrame;
+import bn.src.util.DoubleOps;
 
 public class Simulator {
 

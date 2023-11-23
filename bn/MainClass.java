@@ -9,7 +9,7 @@ import bn.src.core.Layer;
 import bn.src.ls.DecayingLS;
 import bn.src.reader.DataFrame;
 import bn.src.reader.FileReader;
-import bn.src.util.Simulator;
+import bn.src.simulator.Simulator;
 
 public class MainClass {
     
