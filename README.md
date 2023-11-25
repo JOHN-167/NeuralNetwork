@@ -3,12 +3,12 @@
 ## Build and Run the Program
 
 ### Build the program (file compilation)
-- javac bn\src\util\*.java
-- javac bn\src\reader\*.java
-- javac bn\src\ls\\*.java
-- javac bn\src\core\*.java
-- javac bn\src\base\*.java
-- javac bn\src\simulator\*.java
+- javac src\util\*.java
+- javac src\reader\*.java
+- javac src\ls\\*.java
+- javac src\core\*.java
+- javac src\base\*.java
+- javac src\simulator\*.java
 
 ### Run the program (run file):
 java MainClass filepath inputsize outputsize trainpercent type trials threshold
