@@ -2,7 +2,7 @@
 
 ## Build and Run the Program
 
-# Build the program (file compilation)
+### Build the program (file compilation)
 javac bn\src\util\*.java
 javac bn\src\reader\*.java
 javac bn\src\ls\\*.java
@@ -10,7 +10,7 @@ javac bn\src\core\*.java
 javac bn\src\base\*.java
 javac bn\src\simulator\*.java
 
-# Run the program (run file):
+### Run the program (run file):
 java MainClass filepath inputsize outputsize trainpercent type trials threshold
 
 - inputsize (int): the size of the input
