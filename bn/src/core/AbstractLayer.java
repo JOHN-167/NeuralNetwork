@@ -29,6 +29,7 @@ abstract public class AbstractLayer implements Layer {
      */
     public AbstractLayer(int size, int inputSize) {
         units = new Perceptron[size];
+        this.inputSize = inputSize;
         initializeWeights(inputSize);
     }
 
@@ -56,7 +57,9 @@ abstract public class AbstractLayer implements Layer {
         // update the weights and pass on the signals
         Double[] S = new Double[inputSize];
         for (int i = 0; i < inputSize; i++) {S[i] = 0.0;}
-        for (int i = 0; i < size(); i++) {S = DoubleOps.sum(S, units[i].update(signals[i]));}
+        for (int i = 0; i < size(); i++) {
+            S = DoubleOps.sum(S, units[i].update(signals[i]));
+        }
 
         return S;
     }

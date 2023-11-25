@@ -107,7 +107,10 @@ public class MultiLayerNN extends AbstractNN {
         signals = output.update(signals);
 
         // hidden layers: update the weights and pass on the signals
-        for (Layer l : hidden) {signals = l.update(signals);}
+        for (int i = hidden.length-1; i > 0; i--) {
+            Layer l = hidden[i];
+            signals = l.update(signals);
+        }
 
         return signals;
     }

@@ -40,7 +40,7 @@ public class MainClass {
         Layer[] hidden = new Layer[]{
             new LogisticLayer(3, inputSize),
             new LogisticLayer(2, 3),
-            new LogisticLayer(outputsize, 2),
+            new LogisticLayer(2, 2),
         };
 
         for (int i = 0; i < 10; i++) {

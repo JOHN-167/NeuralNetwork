@@ -11,6 +11,7 @@ public class LogisticLayer extends AbstractLayer {
     public LogisticLayer(int size, int inputSize) {
         super(size, inputSize);
     }
+    
 
     @Override
     public void initializeWeights(int inputSize) {

@@ -41,14 +41,7 @@ public class Simulator {
      * The learning schedule
      */
     private LearningSchedule l;
-
-
-    // choose the method of simulation
-    public static final int LINEAR_PERCEPTRON = 1; 
-    public static final int LOGISTIC_PERCEPTRON = 2; 
-    public static final int SINGLELAYERNN = 3; 
-    public static final int MULTILAYERNN = 4; 
-
+    
     
     /**
      * Constructor that creates the simulator. Since no ouput size is provided, the
