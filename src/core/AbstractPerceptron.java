@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import src.io.DataFrame;
 import src.ls.LearningSchedule;
-import src.reader.DataFrame;
 import src.util.DoubleOps;
 
 abstract public class AbstractPerceptron implements Perceptron {

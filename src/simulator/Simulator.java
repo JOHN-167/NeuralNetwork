@@ -12,8 +12,8 @@ import src.core.DoubleScorer;
 import src.core.Layer;
 import src.core.NeuralNetwork;
 import src.core.Perceptron;
+import src.io.DataFrame;
 import src.ls.LearningSchedule;
-import src.reader.DataFrame;
 import src.util.DoubleOps;
 
 public class Simulator {

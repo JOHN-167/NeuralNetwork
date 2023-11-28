@@ -3,7 +3,7 @@ package src.base;
 import java.util.List;
 
 import src.core.DoubleScorer;
-import src.reader.DataFrame;
+import src.io.DataFrame;
 import src.util.DoubleOps;
 
 public class PercentageScorer extends DoubleScorer {

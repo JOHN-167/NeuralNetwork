@@ -1,4 +1,4 @@
-package src.reader;
+package src.io;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

@@ -1,6 +1,7 @@
-package src.core;
+package 
+src.core;
 
-import src.reader.DataFrame;
+import src.io.DataFrame;
 
 /**
  * A Trainable class uses the inputs to predict the most likely

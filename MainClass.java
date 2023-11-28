@@ -4,14 +4,15 @@ import java.util.Map;
 
 import src.base.LogisticLayer;
 import src.core.Layer;
+import src.io.DataFrame;
+import src.io.FileReader;
 import src.ls.DecayingLS;
-import src.reader.DataFrame;
-import src.reader.FileReader;
 import src.simulator.Simulator;
 
 public class MainClass {
     
     public static void main(String[] args) throws FileNotFoundException {
+        
         // create file
         File file = new File(args[0]);
         

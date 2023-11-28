@@ -5,8 +5,8 @@ import java.util.List;
 
 import src.core.AbstractNN;
 import src.core.Layer;
+import src.io.DataFrame;
 import src.ls.LearningSchedule;
-import src.reader.DataFrame;
 import src.util.DoubleOps;
 
 /**

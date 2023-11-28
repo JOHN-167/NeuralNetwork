@@ -1,6 +1,6 @@
 package src.core;
 
-import src.reader.DataFrame;
+import src.io.DataFrame;
 
 abstract public class DoubleScorer {
 
